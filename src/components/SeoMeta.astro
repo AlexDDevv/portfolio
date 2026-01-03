@@ -1,0 +1,41 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  noindex?: boolean;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  noindex = false,
+  ogImage = "/og-default.png",
+} = Astro.props as Props;
+
+const url = canonical ?? Astro.url.href;
+---
+<!-- Primary meta -->
+<title>{title}</title>
+<meta name="description" content={description} />
+
+<!-- Indexing -->
+{noindex && <meta name="robots" content="noindex, nofollow" />}
+
+<!-- Canonical -->
+<link rel="canonical" href={url} />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={url} />
+<meta property="og:image" content={ogImage} />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
