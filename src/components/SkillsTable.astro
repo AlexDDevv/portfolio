@@ -1,0 +1,59 @@
+---
+import type { SkillRow } from "@/data/profile";
+
+interface Props {
+  rows: SkillRow[];
+}
+
+const { rows } = Astro.props as Props;
+---
+
+<div class="skills">
+  {
+    rows.map((row) => (
+      <div class="row">
+        <div class="label">{row.label}</div>
+        <div class="value">{row.value}</div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .skills {
+    display: grid;
+    grid-template-columns: minmax(108px, 158px) 1fr;
+    gap: 11px 24px;
+  }
+  .row {
+    display: contents;
+  }
+  .label {
+    color: var(--muted);
+    font-size: 16px;
+    font-style: italic;
+  }
+  .value {
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  /* Mobile : libellé au-dessus de la valeur (sinon colonne trop étroite). */
+  @media (max-width: 560px) {
+    .skills {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+    .row {
+      display: block;
+      margin-bottom: 16px;
+    }
+    .row:last-child {
+      margin-bottom: 0;
+    }
+    .label {
+      margin-bottom: 2px;
+    }
+  }
+</style>

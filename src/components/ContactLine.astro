@@ -1,0 +1,46 @@
+---
+import type { ContactItem } from "@/data/profile";
+
+interface Props {
+  items: ContactItem[];
+}
+
+const { items } = Astro.props as Props;
+---
+
+<div class="contact-line">
+  {
+    items.map((item, i) => (
+      <span class="item">
+        {i > 0 && <span class="sep">·</span>}
+        <a href={item.href} target="_blank" rel="noopener">
+          {item.label}
+        </a>
+      </span>
+    ))
+  }
+</div>
+
+<style>
+  .contact-line {
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .item {
+    display: inline;
+    white-space: nowrap;
+  }
+  .sep {
+    margin: 0 9px;
+    color: var(--sep);
+  }
+  a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+    text-decoration-thickness: 0.5px;
+  }
+  a:hover {
+    color: var(--ink);
+  }
+</style>

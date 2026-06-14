@@ -1,0 +1,48 @@
+---
+// Bloc de section : un filet horizontal fin (équivalent \hrulefill du CV LaTeX)
+// suivi d'un titre en petites capitales, puis le contenu.
+interface Props {
+  title: string;
+  /** Marge haute du filet (px). */
+  space?: number;
+  /** Taille du titre (px). */
+  size?: number;
+  /** Marge du titre (CSS shorthand). */
+  headingMargin?: string;
+  /** Centrer le titre (utilisé pour la section Contact). */
+  center?: boolean;
+}
+
+const {
+  title,
+  space = 50,
+  size = 19,
+  headingMargin = "28px 0 20px",
+  center = false,
+} = Astro.props as Props;
+---
+
+<div class="rule" style={`margin-top:${space}px`}></div>
+<h2
+  class:list={["section-title", { center }]}
+  style={`font-size:${size}px;margin:${headingMargin};`}
+>
+  {title}
+</h2>
+<slot />
+
+<style>
+  .rule {
+    height: 1px;
+    background: var(--rule);
+  }
+  .section-title {
+    font-variant: small-caps;
+    letter-spacing: 0.06em;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .section-title.center {
+    text-align: center;
+  }
+</style>

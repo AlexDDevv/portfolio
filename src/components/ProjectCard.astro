@@ -1,0 +1,113 @@
+---
+import StatusBadge from "@/components/StatusBadge.astro";
+import ActionLink from "@/components/ActionLink.astro";
+
+interface Props {
+  title: string;
+  href: string;
+  status?: string;
+  description: string;
+  stack: string[];
+  repo?: string;
+  demo?: string;
+  codeLabel: string;
+  demoLabel: string;
+}
+
+const {
+  title,
+  href,
+  status,
+  description,
+  stack,
+  repo,
+  demo,
+  codeLabel,
+  demoLabel,
+} = Astro.props as Props;
+---
+
+<article class="card">
+  <div class="head">
+    <h3 class="title">
+      <a href={href} class="title-link">{title}</a>
+    </h3>
+    {status && <StatusBadge label={status} />}
+  </div>
+  <p class="desc">{description}</p>
+  <div class="stack">{stack.join("  ·  ")}</div>
+  {
+    (repo || demo) && (
+      <div class="links">
+        {repo && (
+          <ActionLink href={repo} external>
+            {codeLabel}
+          </ActionLink>
+        )}
+        {demo && (
+          <ActionLink href={demo} external>
+            {demoLabel}
+          </ActionLink>
+        )}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    position: relative;
+    border: 1px solid var(--border);
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    background: var(--bg);
+    transition: border-color 0.15s ease;
+  }
+  .card:hover {
+    border-color: var(--ink);
+  }
+  .head {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    justify-content: space-between;
+  }
+  .title {
+    font-size: 19px;
+    color: var(--ink);
+    font-weight: 700;
+    margin: 0;
+  }
+  .title-link {
+    color: inherit;
+    text-decoration: none;
+  }
+  /* Rend toute la carte cliquable sans imbriquer les ancres. */
+  .title-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+  .desc {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.55;
+    margin: 0;
+  }
+  .stack {
+    font-size: 13px;
+    color: var(--muted);
+    margin-top: auto;
+    padding-top: 4px;
+    letter-spacing: 0.01em;
+  }
+  .links {
+    display: flex;
+    gap: 18px;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+  }
+</style>

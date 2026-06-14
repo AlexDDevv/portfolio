@@ -1,0 +1,54 @@
+---
+import type { Lang } from "@/i18n/config";
+
+interface Props {
+  lang: Lang;
+  frHref: string;
+  enHref: string;
+}
+
+const { lang, frHref, enHref } = Astro.props as Props;
+---
+
+<div class="switcher">
+  {
+    lang === "fr" ? (
+      <span class="active">FR</span>
+    ) : (
+      <a href={frHref}>FR</a>
+    )
+  }
+  <span class="sep">·</span>
+  {
+    lang === "en" ? (
+      <span class="active">EN</span>
+    ) : (
+      <a href={enHref}>EN</a>
+    )
+  }
+</div>
+
+<style>
+  .switcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-size: 14px;
+    color: var(--muted);
+  }
+  .active {
+    color: var(--ink);
+    font-weight: 700;
+  }
+  a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  a:hover {
+    color: var(--ink);
+  }
+  .sep {
+    color: rgba(61, 62, 91, 0.35);
+  }
+</style>

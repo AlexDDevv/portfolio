@@ -1,0 +1,50 @@
+---
+// Lien souligné sobre. `variant` :
+//  - "action" : encre → gris au survol (liens Code / Démo)
+//  - "muted"  : gris → encre au survol (retour, sélecteur)
+interface Props {
+  href: string;
+  variant?: "action" | "muted";
+  external?: boolean;
+  size?: number;
+}
+
+const {
+  href,
+  variant = "action",
+  external = false,
+  size = 14,
+} = Astro.props as Props;
+
+const rel = external ? "noopener" : undefined;
+const target = external ? "_blank" : undefined;
+---
+
+<a
+  href={href}
+  target={target}
+  rel={rel}
+  class:list={["link", variant]}
+  style={`font-size:${size}px;`}
+>
+  <slot />
+</a>
+
+<style>
+  .link {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .link.action {
+    color: var(--ink);
+  }
+  .link.action:hover {
+    color: var(--muted);
+  }
+  .link.muted {
+    color: var(--muted);
+  }
+  .link.muted:hover {
+    color: var(--ink);
+  }
+</style>
