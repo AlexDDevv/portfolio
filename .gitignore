@@ -22,3 +22,11 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# docs (specs, plans, brainstorming)
+docs/
+
+# markdown files (specs/docs), sauf le contenu de l'app et le README
+*.md
+!README.md
+!src/content/**/*.md
