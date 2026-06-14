@@ -1,0 +1,220 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageShell from "@/components/PageShell.astro";
+import LangSwitcher from "@/components/LangSwitcher.astro";
+import Section from "@/components/Section.astro";
+import StatusBadge from "@/components/StatusBadge.astro";
+import Tag from "@/components/Tag.astro";
+import SkillsTable from "@/components/SkillsTable.astro";
+import ActionLink from "@/components/ActionLink.astro";
+import Gallery from "@/components/Gallery.astro";
+import type { Lang } from "@/i18n/config";
+import { homePath, projectPath } from "@/i18n/config";
+import { ui } from "@/i18n/ui";
+import { NAME } from "@/data/profile";
+import type { ProjectEntry } from "@/lib/projects";
+
+interface Props {
+  lang: Lang;
+  entry: ProjectEntry;
+}
+
+const { lang, entry } = Astro.props as Props;
+const t = ui[lang];
+const d = entry.data;
+
+const frHref = projectPath("fr", d.slug);
+const enHref = projectPath("en", d.slug);
+const backHref = homePath(lang);
+
+const alternates = [
+  { hreflang: "fr-FR", path: frHref },
+  { hreflang: "en-US", path: enHref },
+];
+
+const site = Astro.site ?? new URL("http://localhost:4321");
+const jsonLd: Record<string, unknown> = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareSourceCode",
+  name: d.title,
+  description: d.description,
+  url: new URL(projectPath(lang, d.slug), site).href,
+  programmingLanguage: d.stack,
+  author: { "@type": "Person", name: NAME, url: new URL(homePath(lang), site).href },
+};
+if (d.repo) jsonLd.codeRepository = d.repo;
+
+const metaTitle = `${d.title} — ${NAME}`;
+---
+
+<Layout
+  title={metaTitle}
+  description={d.description}
+  lang={lang}
+  canonicalPath={projectPath(lang, d.slug)}
+  alternates={alternates}
+  ogType="article"
+  jsonLd={jsonLd}
+>
+  <PageShell>
+    <div class="topbar">
+      <ActionLink href={backHref} variant="muted">{t.backLabel}</ActionLink>
+      <LangSwitcher lang={lang} frHref={frHref} enHref={enHref} />
+    </div>
+
+    <header class="title-block">
+      <h1>{d.title}</h1>
+      <div class="meta">
+        {d.status && <StatusBadge label={d.status} strong />}
+        <span class="dates">{d.dates}</span>
+      </div>
+      {
+        (d.repo || d.demo) && (
+          <div class="links">
+            {d.repo && (
+              <ActionLink href={d.repo} external size={15}>
+                {t.tCode}
+              </ActionLink>
+            )}
+            {d.demo && (
+              <ActionLink href={d.demo} external size={15}>
+                {t.tDemo}
+              </ActionLink>
+            )}
+          </div>
+        )
+      }
+    </header>
+
+    <Section title={t.dStackLabel} space={46} size={18} headingMargin="26px 0 16px">
+      <div class="stack">
+        {d.stack.map((s) => <Tag label={s} />)}
+      </div>
+      {
+        d.stackDetail.length > 0 && (
+          <div class="stack-detail">
+            <SkillsTable rows={d.stackDetail} />
+          </div>
+        )
+      }
+    </Section>
+
+    <Section title={t.dContextLabel} space={46} size={18} headingMargin="26px 0 14px">
+      <p class="prose">{d.context}</p>
+    </Section>
+
+    {
+      d.gallery.length > 0 && (
+        <Section
+          title={t.dPreviewsLabel}
+          space={46}
+          size={18}
+          headingMargin="26px 0 18px"
+        >
+          <Gallery items={d.gallery} placeholder={t.previewPlaceholder} />
+        </Section>
+      )
+    }
+
+    {
+      d.features.length > 0 && (
+        <Section
+          title={t.dFeaturesLabel}
+          space={46}
+          size={18}
+          headingMargin="26px 0 14px"
+        >
+          <ul class="features">
+            {d.features.map((ft) => <li>{ft}</li>)}
+          </ul>
+        </Section>
+      )
+    }
+
+    <Section
+      title={t.dDemonstratesLabel}
+      space={46}
+      size={18}
+      headingMargin="26px 0 14px"
+    >
+      <p class="prose">{d.demonstrates}</p>
+    </Section>
+
+    <div class="back">
+      <ActionLink href={backHref} variant="muted" size={15}>
+        {t.backLabel}
+      </ActionLink>
+    </div>
+  </PageShell>
+</Layout>
+
+<style>
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+  }
+  .title-block {
+    text-align: center;
+    margin-top: 30px;
+  }
+  .title-block h1 {
+    font-size: clamp(30px, 6.5vw, 46px);
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+    letter-spacing: -0.005em;
+    line-height: 1.06;
+  }
+  .meta {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--muted);
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .dates {
+    white-space: nowrap;
+  }
+  .links {
+    margin-top: 16px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+  .stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .stack-detail {
+    margin-top: 18px;
+  }
+  .prose {
+    max-width: 64ch;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.72;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .features {
+    margin: 0;
+    padding-left: 1.15em;
+    max-width: 64ch;
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.72;
+  }
+  .features li {
+    margin-bottom: 7px;
+    text-wrap: pretty;
+  }
+  .back {
+    margin-top: 54px;
+  }
+</style>

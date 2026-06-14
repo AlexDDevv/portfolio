@@ -1,0 +1,163 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageShell from "@/components/PageShell.astro";
+import LangSwitcher from "@/components/LangSwitcher.astro";
+import SiteHeader from "@/components/SiteHeader.astro";
+import Section from "@/components/Section.astro";
+import SkillsTable from "@/components/SkillsTable.astro";
+import TimelineEntry from "@/components/TimelineEntry.astro";
+import ProjectCard from "@/components/ProjectCard.astro";
+import ContactLine from "@/components/ContactLine.astro";
+import type { Lang } from "@/i18n/config";
+import { homePath, projectPath } from "@/i18n/config";
+import { ui } from "@/i18n/ui";
+import { NAME, CONTACT, getContactItems, profile } from "@/data/profile";
+import { getFeaturedProjects } from "@/lib/projects";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props as Props;
+
+const t = ui[lang];
+const p = profile[lang];
+const contactItems = getContactItems(lang);
+const projects = await getFeaturedProjects(lang);
+
+const alternates = [
+  { hreflang: "fr-FR", path: "/" },
+  { hreflang: "en-US", path: "/en/" },
+];
+
+const site = Astro.site ?? new URL("http://localhost:4321");
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: NAME,
+  jobTitle: p.subtitle,
+  url: new URL(homePath(lang), site).href,
+  email: CONTACT.email,
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Écully",
+    addressRegion: "Auvergne-Rhône-Alpes",
+    addressCountry: "FR",
+  },
+  sameAs: [CONTACT.linkedin, CONTACT.github, CONTACT.x],
+  knowsLanguage: ["fr", "en"],
+};
+---
+
+<Layout
+  title={t.metaHomeTitle}
+  description={t.metaHomeDescription}
+  lang={lang}
+  canonicalPath={homePath(lang)}
+  alternates={alternates}
+  jsonLd={personJsonLd}
+>
+  <PageShell>
+    <div class="topbar">
+      <LangSwitcher
+        lang={lang}
+        frHref="/"
+        enHref="/en/"
+      />
+    </div>
+
+    <SiteHeader
+      name={NAME}
+      subtitle={p.subtitle}
+      location={p.location}
+      contactItems={contactItems}
+    />
+
+    <p class="accroche">{p.accroche}</p>
+
+    <Section title={t.tSkills}>
+      <SkillsTable rows={p.skills} />
+    </Section>
+
+    <Section title={t.tExperience} headingMargin="28px 0 22px">
+      {
+        p.experiences.map((exp) => (
+          <TimelineEntry
+            title={exp.role}
+            org={exp.org}
+            dates={exp.dates}
+            detail={exp.stackLine}
+            bullets={exp.bullets}
+            dateWidth={120}
+            gap={30}
+          />
+        ))
+      }
+    </Section>
+
+    <Section title={t.tEducation} headingMargin="28px 0 22px">
+      {
+        p.formations.map((f) => (
+          <TimelineEntry
+            title={f.title}
+            org={f.org}
+            dates={f.dates}
+            dateWidth={88}
+            gap={20}
+          />
+        ))
+      }
+    </Section>
+
+    <Section title={t.tProjects} headingMargin="28px 0 22px">
+      <div class="projects">
+        {
+          projects.map((entry) => (
+            <ProjectCard
+              title={entry.data.title}
+              href={projectPath(lang, entry.data.slug)}
+              status={entry.data.status}
+              description={entry.data.description}
+              stack={entry.data.stack}
+              repo={entry.data.repo}
+              demo={entry.data.demo}
+              codeLabel={t.tCode}
+              demoLabel={t.tDemo}
+            />
+          ))
+        }
+      </div>
+    </Section>
+
+    <Section title={t.tContact} headingMargin="28px 0 16px" center>
+      <div class="contact">
+        <ContactLine items={contactItems} />
+      </div>
+    </Section>
+  </PageShell>
+</Layout>
+
+<style>
+  .topbar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .accroche {
+    max-width: 68ch;
+    margin: 34px auto 0;
+    text-align: center;
+    font-style: italic;
+    font-size: clamp(17px, 2.5vw, 19px);
+    line-height: 1.62;
+    color: var(--ink);
+    text-wrap: pretty;
+  }
+  .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(248px, 1fr));
+    gap: 18px;
+  }
+  .contact {
+    text-align: center;
+  }
+</style>
