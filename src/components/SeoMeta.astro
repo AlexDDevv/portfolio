@@ -1,41 +1,81 @@
 ---
+export interface Alternate {
+  /** Code hreflang, ex. "fr-FR". */
+  hreflang: string;
+  /** Chemin site-relatif, ex. "/" ou "/en/". */
+  path: string;
+}
+
 interface Props {
   title: string;
   description: string;
-  canonical?: string;
+  canonicalPath: string;
+  alternates?: Alternate[];
   noindex?: boolean;
   ogImage?: string;
+  ogType?: "website" | "article";
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
 const {
   title,
   description,
-  canonical,
+  canonicalPath,
+  alternates = [],
   noindex = false,
   ogImage = "/og-default.png",
+  ogType = "website",
+  jsonLd,
 } = Astro.props as Props;
 
-const url = canonical ?? Astro.url.href;
+const site = Astro.site ?? new URL("http://localhost:4321");
+const abs = (path: string) => new URL(path, site).href;
+
+const canonical = abs(canonicalPath);
+const ogImageUrl = abs(ogImage);
+const jsonLdItems = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];
 ---
+
 <!-- Primary meta -->
 <title>{title}</title>
 <meta name="description" content={description} />
 
-<!-- Indexing -->
 {noindex && <meta name="robots" content="noindex, nofollow" />}
 
-<!-- Canonical -->
-<link rel="canonical" href={url} />
+<link rel="canonical" href={canonical} />
+
+<!-- hreflang -->
+{
+  alternates.map((alt) => (
+    <link rel="alternate" hreflang={alt.hreflang} href={abs(alt.path)} />
+  ))
+}
+{
+  alternates.length > 0 && (
+    <link rel="alternate" hreflang="x-default" href={abs(alternates[0].path)} />
+  )
+}
 
 <!-- Open Graph -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
-<meta property="og:url" content={url} />
-<meta property="og:image" content={ogImage} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImageUrl} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
-<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image" content={ogImageUrl} />
+
+<!-- JSON-LD -->
+{
+  jsonLdItems.map((item) => (
+    <script
+      is:inline
+      type="application/ld+json"
+      set:html={JSON.stringify(item)}
+    />
+  ))
+}

@@ -1,28 +1,62 @@
 ---
-import SeoMeta from "@/components/SeoMeta.astro";
+import SeoMeta, { type Alternate } from "@/components/SeoMeta.astro";
+import type { Lang } from "@/i18n/config";
 import "@/styles/global.css";
 
 interface Props {
   title: string;
   description: string;
-  canonical?: string;
+  lang: Lang;
+  canonicalPath: string;
+  alternates?: Alternate[];
   noindex?: boolean;
+  ogImage?: string;
+  ogType?: "website" | "article";
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
 }
 
-const { title, description, canonical, noindex } = Astro.props as Props;
+const {
+  title,
+  description,
+  lang,
+  canonicalPath,
+  alternates,
+  noindex,
+  ogImage,
+  ogType,
+  jsonLd,
+} = Astro.props as Props;
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Favicons -->
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Police principale auto-hébergée, préchargée (rendu LaTeX) -->
+    <link
+      rel="preload"
+      href="/fonts/cmunrm.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
 
     <SeoMeta
       title={title}
       description={description}
-      canonical={canonical}
+      canonicalPath={canonicalPath}
+      alternates={alternates}
       noindex={noindex}
+      ogImage={ogImage}
+      ogType={ogType}
+      jsonLd={jsonLd}
     />
   </head>
 
