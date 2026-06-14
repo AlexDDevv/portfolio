@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://alexisdelporte.dev/sitemap-index.xml
