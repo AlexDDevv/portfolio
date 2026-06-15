@@ -4,7 +4,7 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
 // Domaine de production (sous-domaine Vercel pour l'instant).
-const SITE = "https://alexis-delporte-portfolio.vercel.app";
+const SITE = "https://alexis-delporte.vercel.app";
 
 export default defineConfig({
   site: SITE,

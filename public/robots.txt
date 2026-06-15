@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://alexis-delporte-portfolio.vercel.app/sitemap-index.xml
+Sitemap: https://alexis-delporte.vercel.app/sitemap-index.xml
