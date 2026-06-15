@@ -1,5 +1,5 @@
 ---
-# MODÈLE — duplique ce fichier (et sa version EN) pour ajouter un projet,
+# MODÈLE : duplique ce fichier (et sa version EN) pour ajouter un projet,
 # puis remplace les valeurs. Mets `featured: true` pour l'afficher en avant.
 lang: fr
 slug: exemple-projet
@@ -21,5 +21,5 @@ demonstrates: >-
   Explique ce que ce projet démontre techniquement (architecture, choix de
   stack, points d'ingénierie notables).
 gallery:
-  - caption: Fig. 1 — Première capture
+  - caption: "Fig. 1 : Première capture"
 ---

@@ -15,6 +15,6 @@ demonstrates: >-
   The project showcases building a fully TypeScript-typed web application, from
   its application logic to its interface.
 gallery:
-  - caption: Fig. 1 — Main interface
-  - caption: Fig. 2 — Detail view
+  - caption: "Fig. 1: Main interface"
+  - caption: "Fig. 2: Detail view"
 ---

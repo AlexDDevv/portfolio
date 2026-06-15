@@ -1,5 +1,5 @@
 ---
-# TEMPLATE — duplicate this file (and its FR version) to add a project,
+# TEMPLATE: duplicate this file (and its FR version) to add a project,
 # then replace the values. Set `featured: true` to surface it.
 lang: en
 slug: exemple-projet
@@ -21,5 +21,5 @@ demonstrates: >-
   Explain what this project demonstrates technically (architecture, stack
   choices, notable engineering points).
 gallery:
-  - caption: Fig. 1 — First screenshot
+  - caption: "Fig. 1: First screenshot"
 ---

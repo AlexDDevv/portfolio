@@ -16,6 +16,6 @@ demonstrates: >-
   Le projet illustre la mise en place d'une application web entièrement typée en
   TypeScript, de sa logique applicative jusqu'à son interface.
 gallery:
-  - caption: Fig. 1 — Interface principale
-  - caption: Fig. 2 — Vue détaillée
+  - caption: "Fig. 1 : Interface principale"
+  - caption: "Fig. 2 : Vue détaillée"
 ---
