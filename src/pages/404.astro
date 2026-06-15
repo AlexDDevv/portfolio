@@ -1,0 +1,75 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import PageShell from "@/components/PageShell.astro";
+---
+
+<Layout
+  title="404 · Page introuvable"
+  description="La page demandée est introuvable."
+  lang="fr"
+  canonicalPath="/404"
+  noindex
+>
+  <PageShell>
+    <div class="notfound">
+      <p class="code">404</p>
+      <div class="rule"></div>
+      <p class="msg">
+        Cette page n'existe pas ou a été déplacée.<br />
+        <span class="en">This page doesn't exist or has moved.</span>
+      </p>
+      <div class="links">
+        <a href="/">Retour à l'accueil</a>
+        <span class="sep">·</span>
+        <a href="/en/">Back to home</a>
+      </div>
+    </div>
+  </PageShell>
+</Layout>
+
+<style>
+  .notfound {
+    text-align: center;
+    margin-top: clamp(40px, 12vh, 120px);
+  }
+  .code {
+    font-size: clamp(64px, 16vw, 110px);
+    font-weight: 400;
+    color: var(--ink);
+    margin: 0;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+  .rule {
+    height: 1px;
+    background: var(--rule);
+    max-width: 320px;
+    margin: 28px auto;
+  }
+  .msg {
+    font-size: clamp(17px, 2.5vw, 19px);
+    line-height: 1.6;
+    color: var(--ink);
+    margin: 0;
+  }
+  .msg .en {
+    color: var(--muted);
+    font-style: italic;
+  }
+  .links {
+    margin-top: 30px;
+    font-size: 15px;
+  }
+  .links a {
+    color: var(--muted);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .links a:hover {
+    color: var(--ink);
+  }
+  .links .sep {
+    margin: 0 10px;
+    color: var(--sep);
+  }
+</style>
