@@ -1,10 +1,9 @@
 import { defineConfig } from "astro/config";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
-// Domaine de production — à remplacer par le vrai nom de domaine.
+// Domaine de production, à remplacer par le vrai nom de domaine.
 const SITE = "https://alexisdelporte.dev";
 
 export default defineConfig({
@@ -15,7 +14,6 @@ export default defineConfig({
     routing: { prefixDefaultLocale: false },
   },
   integrations: [
-    react(),
     sitemap({
       i18n: {
         defaultLocale: "fr",
