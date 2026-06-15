@@ -3,8 +3,8 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import path from "node:path";
 
-// Domaine de production, à remplacer par le vrai nom de domaine.
-const SITE = "https://alexisdelporte.dev";
+// Domaine de production (sous-domaine Vercel pour l'instant).
+const SITE = "https://alexis-delporte-portfolio.vercel.app";
 
 export default defineConfig({
   site: SITE,
