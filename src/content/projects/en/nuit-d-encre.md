@@ -48,7 +48,12 @@ demonstrates: >-
   side, the gamification and social features reflect product thinking focused on
   reader engagement.
 gallery:
-  - caption: Fig. 1 — Home page
-  - caption: Fig. 2 — Book and author search
-  - caption: Fig. 3 — Personal library
+  - caption: "Fig. 1: Book search"
+    image: ../../../assets/projects/nuit-d-encre/books.png
+  - caption: "Fig. 2: Book details"
+    image: ../../../assets/projects/nuit-d-encre/bookDetails.png
+  - caption: "Fig. 3: Author details"
+    image: ../../../assets/projects/nuit-d-encre/authorDetails.png
+  - caption: "Fig. 4: Personal library"
+    image: ../../../assets/projects/nuit-d-encre/userLibrary.png
 ---

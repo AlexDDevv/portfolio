@@ -49,7 +49,12 @@ demonstrates: >-
   dimension sociale traduisent une réflexion produit centrée sur l'engagement
   des lecteurs.
 gallery:
-  - caption: Fig. 1 — Page d'accueil
-  - caption: Fig. 2 — Recherche de livres et d'auteurs
-  - caption: Fig. 3 — Bibliothèque personnelle
+  - caption: "Fig. 1 : Recherche de livres"
+    image: ../../../assets/projects/nuit-d-encre/books.png
+  - caption: "Fig. 2 : Fiche d'un livre"
+    image: ../../../assets/projects/nuit-d-encre/bookDetails.png
+  - caption: "Fig. 3 : Fiche d'un auteur"
+    image: ../../../assets/projects/nuit-d-encre/authorDetails.png
+  - caption: "Fig. 4 : Bibliothèque personnelle"
+    image: ../../../assets/projects/nuit-d-encre/userLibrary.png
 ---
