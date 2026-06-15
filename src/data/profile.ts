@@ -2,7 +2,7 @@ import type { Lang } from "@/i18n/config";
 
 export const NAME = "Alexis Delporte";
 
-/** Liens de contact — à compléter avec les vrais. */
+/** Liens de contact, à compléter avec les vrais. */
 export const CONTACT = {
   email: "alexddevs@gmail.com",
   linkedin: "https://www.linkedin.com/in/alexis-delporte",
@@ -15,7 +15,7 @@ export interface ContactItem {
   href: string;
 }
 
-/** CV au format PDF, un par langue — fichiers à déposer dans public/. */
+/** CV au format PDF, un par langue ; fichiers à déposer dans public/. */
 export const CV_PATHS: Record<Lang, string> = {
   fr: "/cv-alexis-delporte-fr.pdf",
   en: "/cv-alexis-delporte-en.pdf",
@@ -82,7 +82,7 @@ export const profile: Record<Lang, Profile> = {
     experiences: [
       {
         role: "Développeur Full Stack junior",
-        org: "Likewatt — éditeur de logiciel, Villeurbanne",
+        org: "Likewatt, éditeur de logiciel, Villeurbanne",
         dates: "Nov. 2025 → présent",
         stackLine:
           "React, Tailwind, TanStack, Zustand, NestJS, MongoDB, Docker.",
@@ -94,7 +94,7 @@ export const profile: Record<Lang, Profile> = {
       },
       {
         role: "Développeur Full Stack en alternance",
-        org: "Likewatt — éditeur de logiciel, Villeurbanne",
+        org: "Likewatt, éditeur de logiciel, Villeurbanne",
         dates: "Sept. 2024 → Nov. 2025",
         stackLine: "React, Styled Components, NestJS, Docker, Firebase.",
         bullets: [
@@ -110,12 +110,12 @@ export const profile: Record<Lang, Profile> = {
       {
         title: "Concepteur Développeur d'Applications",
         org: "Wild Code School (alternance) · RNCP niveau 6",
-        dates: "2024 – 2025",
+        dates: "2024-2025",
       },
       {
         title: "Développeur Intégrateur Web",
         org: "OpenClassrooms (en ligne) · RNCP niveau 5",
-        dates: "2023 – 2024",
+        dates: "2023-2024",
       },
     ],
   },
@@ -139,7 +139,7 @@ export const profile: Record<Lang, Profile> = {
     experiences: [
       {
         role: "Junior Full Stack developer",
-        org: "Likewatt — software vendor, Villeurbanne",
+        org: "Likewatt, software vendor, Villeurbanne",
         dates: "Nov. 2025 → present",
         stackLine:
           "React, Tailwind, TanStack, Zustand, NestJS, MongoDB, Docker.",
@@ -151,7 +151,7 @@ export const profile: Record<Lang, Profile> = {
       },
       {
         role: "Full Stack developer (work-study)",
-        org: "Likewatt — software vendor, Villeurbanne",
+        org: "Likewatt, software vendor, Villeurbanne",
         dates: "Sept. 2024 → Nov. 2025",
         stackLine: "React, Styled Components, NestJS, Docker, Firebase.",
         bullets: [
@@ -167,12 +167,12 @@ export const profile: Record<Lang, Profile> = {
       {
         title: "Application Designer-Developer",
         org: "Wild Code School (work-study) · RNCP level 6",
-        dates: "2024 – 2025",
+        dates: "2024-2025",
       },
       {
         title: "Web Developer-Integrator",
         org: "OpenClassrooms (online) · RNCP level 5",
-        dates: "2023 – 2024",
+        dates: "2023-2024",
       },
     ],
   },
