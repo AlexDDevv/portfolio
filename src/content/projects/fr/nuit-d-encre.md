@@ -5,7 +5,6 @@ title: Nuit d'Encre
 status: En cours
 dates: 2025 → en cours
 description: "Plateforme sociale de bibliothèque en ligne : recherche hybride de livres, gamification, critiques et recommandations."
-featured: true
 order: 1
 stack: [TypeScript, React 19, GraphQL, TypeORM, PostgreSQL, Tailwind CSS, Docker]
 stackDetail:

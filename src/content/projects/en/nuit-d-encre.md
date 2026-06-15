@@ -5,7 +5,6 @@ title: Nuit d'Encre
 status: In progress
 dates: 2025 → ongoing
 description: "Social online-library platform: hybrid book search, gamification, reviews and recommendations."
-featured: true
 order: 1
 stack: [TypeScript, React 19, GraphQL, TypeORM, PostgreSQL, Tailwind CSS, Docker]
 stackDetail:

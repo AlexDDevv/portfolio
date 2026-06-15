@@ -4,7 +4,6 @@ slug: squaree
 title: Squaree
 dates: "2024"
 description: "Application web TypeScript, disponible en démonstration."
-featured: true
 order: 2
 stack: [TypeScript]
 repo: https://github.com/AlexDDevv/Squaree

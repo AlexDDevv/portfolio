@@ -20,7 +20,6 @@ const projects = defineCollection({
     dates: z.string(),
     /** Résumé court utilisé sur la carte d'accueil et en meta description. */
     description: z.string(),
-    featured: z.boolean().default(false),
     /** Ordre d'affichage (croissant). */
     order: z.number().default(99),
     stack: z.array(z.string()).default([]),

@@ -12,7 +12,7 @@ import type { Lang } from "@/i18n/config";
 import { homePath, projectPath } from "@/i18n/config";
 import { ui } from "@/i18n/ui";
 import { NAME, CONTACT, getContactItems, profile } from "@/data/profile";
-import { getFeaturedProjects } from "@/lib/projects";
+import { getProjects } from "@/lib/projects";
 
 interface Props {
   lang: Lang;
@@ -23,7 +23,7 @@ const { lang } = Astro.props as Props;
 const t = ui[lang];
 const p = profile[lang];
 const contactItems = getContactItems(lang);
-const projects = await getFeaturedProjects(lang);
+const projects = await getProjects(lang);
 
 const alternates = [
   { hreflang: "fr-FR", path: "/" },
