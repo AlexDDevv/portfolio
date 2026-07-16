@@ -17,8 +17,8 @@ export interface ContactItem {
 
 /** CV au format PDF, un par langue ; fichiers à déposer dans public/. */
 export const CV_PATHS: Record<Lang, string> = {
-  fr: "/cv-alexis-delporte-fr.pdf",
-  en: "/cv-alexis-delporte-en.pdf",
+  fr: "/cv_alexis_delporte_fr.pdf",
+  en: "/cv_alexis_delporte_en.pdf",
 };
 
 const baseContactItems: ContactItem[] = [
