@@ -6,7 +6,8 @@ status: In progress
 dates: 2025 → ongoing
 description: "Social online-library platform: hybrid book search, gamification, reviews and recommendations."
 order: 1
-stack: [TypeScript, React 19, GraphQL, TypeORM, PostgreSQL, Tailwind CSS, Docker]
+stack:
+  [TypeScript, React 19, GraphQL, TypeORM, PostgreSQL, Tailwind CSS, Docker]
 stackDetail:
   - label: Frontend
     value: >-
@@ -23,6 +24,7 @@ stackDetail:
       pnpm-workspaces monorepo, Docker Compose deployment (frontend, backend and
       PostgreSQL 15 as isolated services).
 repo: https://github.com/AlexDDevv/Nuit-d-Encre
+demo: https://nuitdencre.fr/
 context: >-
   Full-stack design and development of a social online-library platform that
   brings together book discovery and reading tracking in a sober, fast

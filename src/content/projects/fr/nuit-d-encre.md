@@ -6,7 +6,8 @@ status: En cours
 dates: 2025 → en cours
 description: "Plateforme sociale de bibliothèque en ligne : recherche hybride de livres, gamification, critiques et recommandations."
 order: 1
-stack: [TypeScript, React 19, GraphQL, TypeORM, PostgreSQL, Tailwind CSS, Docker]
+stack:
+  [TypeScript, React 19, GraphQL, TypeORM, PostgreSQL, Tailwind CSS, Docker]
 stackDetail:
   - label: Frontend
     value: >-
@@ -23,6 +24,7 @@ stackDetail:
       Monorepo pnpm workspaces, déploiement Docker Compose (frontend, backend et
       PostgreSQL 15 en services isolés).
 repo: https://github.com/AlexDDevv/Nuit-d-Encre
+demo: https://nuitdencre.fr/
 context: >-
   Conception et développement full-stack d'une plateforme sociale de
   bibliothèque en ligne, qui réunit la découverte d'ouvrages et le suivi de ses
