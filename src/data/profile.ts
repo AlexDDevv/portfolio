@@ -7,7 +7,7 @@ export const CONTACT = {
   email: "alexddevs@gmail.com",
   linkedin: "https://www.linkedin.com/in/alexis-delporte",
   github: "https://github.com/AlexDDevv",
-  x: "https://x.com/Sport_DevWeb",
+  Téléphone: "06.68.05.34.83",
 };
 
 export interface ContactItem {
@@ -25,7 +25,7 @@ const baseContactItems: ContactItem[] = [
   { label: "Email", href: `mailto:${CONTACT.email}` },
   { label: "LinkedIn", href: CONTACT.linkedin },
   { label: "GitHub", href: CONTACT.github },
-  { label: "X", href: CONTACT.x },
+  { label: "Téléphone", href: `tel:${CONTACT.Téléphone}` },
 ];
 
 /** Liens de contact pour une langue (CV en tête). */
