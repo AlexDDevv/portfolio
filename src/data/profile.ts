@@ -81,7 +81,7 @@ export const profile: Record<Lang, Profile> = {
     ],
     experiences: [
       {
-        role: "Développeur Full Stack junior",
+        role: "Développeur Full Stack",
         org: "Likewatt, éditeur de logiciel, Villeurbanne",
         dates: "Nov. 2025 → présent",
         stackLine:
@@ -138,7 +138,7 @@ export const profile: Record<Lang, Profile> = {
     ],
     experiences: [
       {
-        role: "Junior Full Stack developer",
+        role: "Full Stack developer",
         org: "Likewatt, software vendor, Villeurbanne",
         dates: "Nov. 2025 → present",
         stackLine:
