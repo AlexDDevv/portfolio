@@ -5,7 +5,7 @@ title: Grindrise
 status: En cours
 dates: 2026 → en cours # premier commit le 10/08/2026, dernier le 27/08/2026
 description: "Application mobile de suivi sportif qui transforme chaque séance en progression RPG (classes, XP, niveaux, récit à débloquer), avec un modèle anti-triche entièrement arbitré par le serveur."
-order:
+order: 2
 stack:
   [
     React Native,

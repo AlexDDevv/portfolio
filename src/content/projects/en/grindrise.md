@@ -5,7 +5,7 @@ title: Grindrise
 status: In progress
 dates: 2026 → ongoing # first commit on 2026-08-10, last on 2026-08-27
 description: "Mobile fitness tracker that turns every workout into RPG progression (classes, XP, levels, unlockable story), backed by an anti-cheat model enforced entirely server-side."
-order:
+order: 2
 stack:
   [
     React Native,
