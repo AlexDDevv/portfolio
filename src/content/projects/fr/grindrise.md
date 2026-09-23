@@ -102,5 +102,5 @@ demonstrates: >-
   compromis explicitement documentés dans le code (vérification JWT locale contre révocation immédiate, geste en thread JS contre dépendance native)
   et un déploiement conteneurisé durci sur deux environnements isolés.
   Enfin, la réflexion produit est visible dans des choix comme le retrait du bonus d'effort en musculation (le tonnage est trop facile à gonfler) ou le streak calé sur le fuseau local du joueur.
-gallery:
+gallery: []
 ---

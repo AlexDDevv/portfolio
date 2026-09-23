@@ -102,5 +102,5 @@ demonstrates: >-
   trade-offs explicitly documented in the code (local JWT verification versus immediate revocation, JS-thread gestures versus a native dependency)
   and a hardened containerized deployment across two isolated environments.
   Finally, product thinking shows in decisions like removing the effort bonus for strength training (tonnage is too easy to inflate) or computing streaks in the player's local time zone.
-gallery:
+gallery: []
 ---
