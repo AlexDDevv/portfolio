@@ -47,6 +47,7 @@ stackDetail:
     value: >-
       Monorepo pnpm workspace (app/frontend, app/backend). Développement sous Docker Compose (front, back, PostgreSQL 15 avec healthcheck, réseaux séparés, hot reload), proxy Vite /api. Images Node 24 Alpine, builds de production multi-stage, frontend servi par nginx-unprivileged. Production sur CapRover en trois apps : PostgreSQL, backend Node, frontend nginx servant la SPA et proxifiant /api sur le réseau interne (même origine, cookie SameSite=Strict préservé), avec un environnement de staging. CI GitHub Actions en deux jobs parallèles (lint, tests, build Vite côté front ; lint, typecheck, tests côté back) : étapes ordonnées de la moins coûteuse à la plus coûteuse, jeton en lecture seule, timeout par job, annulation des runs obsolètes. Branche master protégée par un ruleset GitHub (checks CI requis, force push interdit) : un commit n'y arrive qu'après validation sur la branche test.
 repo: https://github.com/AlexDDevv/Nuit-d-Encre
+demo: https://nuitdencre.fr/
 context: >-
   Nuit d'Encre est une bibliothèque sociale en ligne où chaque lecteur tient sa bibliothèque, suit ses lectures, publie des critiques et suit d'autres lecteurs, dans une direction artistique nocturne assumée. Démarré fin 2024, le projet a été repris et amené vers un niveau production (sécurité, RGPD, tests, CI, déploiement) avec pour objectif d'en faire une vitrine technique crédible, et non un simple CRUD. Il est déployé sur nuitdencre.fr.
 features:
