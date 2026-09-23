@@ -4,14 +4,14 @@ import PageShell from "@/components/PageShell.astro";
 import LangSwitcher from "@/components/LangSwitcher.astro";
 import SiteHeader from "@/components/SiteHeader.astro";
 import Section from "@/components/Section.astro";
-import SkillsTable from "@/components/SkillsTable.astro";
 import TimelineEntry from "@/components/TimelineEntry.astro";
 import ProjectCard from "@/components/ProjectCard.astro";
 import ContactLine from "@/components/ContactLine.astro";
+import ActionLink from "@/components/ActionLink.astro";
 import type { Lang } from "@/i18n/config";
 import { homePath, projectPath } from "@/i18n/config";
 import { ui } from "@/i18n/ui";
-import { NAME, CONTACT, getContactItems, profile } from "@/data/profile";
+import { NAME, CONTACT, CV_PATHS, getContactItems, profile } from "@/data/profile";
 import { getProjects } from "@/lib/projects";
 
 interface Props {
@@ -75,40 +75,6 @@ const personJsonLd = {
 
     <p class="accroche">{p.accroche}</p>
 
-    <Section title={t.tSkills}>
-      <SkillsTable rows={p.skills} />
-    </Section>
-
-    <Section title={t.tExperience} headingMargin="28px 0 22px">
-      {
-        p.experiences.map((exp) => (
-          <TimelineEntry
-            title={exp.role}
-            org={exp.org}
-            dates={exp.dates}
-            detail={exp.stackLine}
-            bullets={exp.bullets}
-            dateWidth={120}
-            gap={30}
-          />
-        ))
-      }
-    </Section>
-
-    <Section title={t.tEducation} headingMargin="28px 0 22px">
-      {
-        p.formations.map((f) => (
-          <TimelineEntry
-            title={f.title}
-            org={f.org}
-            dates={f.dates}
-            dateWidth={88}
-            gap={20}
-          />
-        ))
-      }
-    </Section>
-
     <Section title={t.tProjects} headingMargin="28px 0 22px">
       <div class="projects">
         {
@@ -127,6 +93,37 @@ const personJsonLd = {
           ))
         }
       </div>
+    </Section>
+
+    <Section title={t.tExperience} headingMargin="28px 0 22px">
+      {
+        p.experiences.map((exp) => (
+          <TimelineEntry
+            title={exp.role}
+            org={exp.org}
+            dates={exp.dates}
+            dateWidth={120}
+            gap={18}
+          />
+        ))
+      }
+    </Section>
+
+    <Section title={t.tEducation} headingMargin="28px 0 22px">
+      {
+        p.formations.map((f) => (
+          <TimelineEntry
+            title={f.title}
+            org={f.org}
+            dates={f.dates}
+            dateWidth={88}
+            gap={18}
+          />
+        ))
+      }
+      <p class="full-cv">
+        <ActionLink href={CV_PATHS[lang]} size={15}>{t.tFullCv}</ActionLink>
+      </p>
     </Section>
 
     <Section title={t.tContact} headingMargin="28px 0 16px" center>
@@ -151,6 +148,9 @@ const personJsonLd = {
     line-height: 1.62;
     color: var(--ink);
     text-wrap: pretty;
+  }
+  .full-cv {
+    margin: 8px 0 0;
   }
   .projects {
     display: grid;

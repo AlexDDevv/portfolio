@@ -9,6 +9,7 @@ export interface UIStrings {
   tContact: string;
   // libellés génériques
   tCode: string;
+  tFullCv: string;
   tDemo: string;
   backLabel: string;
   // page projet
@@ -31,6 +32,7 @@ export const ui: Record<Lang, UIStrings> = {
     tProjects: "Projets",
     tContact: "Contact",
     tCode: "Code",
+    tFullCv: "Parcours détaillé dans le CV (PDF)",
     tDemo: "Démo",
     backLabel: "← Retour à l'accueil",
     dStackLabel: "Stack technique",
@@ -50,6 +52,7 @@ export const ui: Record<Lang, UIStrings> = {
     tProjects: "Projects",
     tContact: "Contact",
     tCode: "Code",
+    tFullCv: "Full background in the resume (PDF)",
     tDemo: "Demo",
     backLabel: "← Back to home",
     dStackLabel: "Tech stack",
