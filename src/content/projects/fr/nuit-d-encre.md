@@ -51,11 +51,28 @@ demonstrates: >-
   des lecteurs.
 gallery:
   - caption: "Fig. 1 : Recherche de livres"
+    description: "Page catalogue avec recherche hybride combinant base interne, Google Books API et Open Library, avec complétion progressive des fiches importées."
     image: ../../../assets/projects/nuit-d-encre/books.png
   - caption: "Fig. 2 : Fiche d'un livre"
+    description: "Détail d'un ouvrage : notes moyennes calculées côté serveur, critiques (une par utilisateur, bonus XP si détaillée), recommandations et votes."
     image: ../../../assets/projects/nuit-d-encre/bookDetails.png
-  - caption: "Fig. 3 : Fiche d'un auteur"
+  - caption: "Fig. 3 : Fiche auteur"
+    description: "Présentation et bibliographie de l'auteur, alimentée automatiquement lors de l'import d'un livre."
     image: ../../../assets/projects/nuit-d-encre/authorDetails.png
   - caption: "Fig. 4 : Bibliothèque personnelle"
+    description: "Suivi de lecture par statut ('Vos rayons'), avec filtres par format, langue et statut."
     image: ../../../assets/projects/nuit-d-encre/userLibrary.png
+  - caption: "Fig. 5 : Profil utilisateur"
+    description: "Page profil : statistiques de lecture, progression XP, badges débloqués."
+    image: ../../../assets/projects/nuit-d-encre/profil_1.png
+  - caption: "Fig. 6 : Profil utilisateur"
+    image: ../../../assets/projects/nuit-d-encre/profil_2.png
+  - caption: "Fig. 7 : Profil utilisateur"
+    image: ../../../assets/projects/nuit-d-encre/profil_3.png
+  - caption: "Fig. 8 : Fil d'activité social"
+    description: "Activité des lecteurs suivis : abonnements, critiques publiées, recommandations."
+    image: ../../../assets/projects/nuit-d-encre/activity.png
+  - caption: "Fig. 9 : Panel admin"
+    description: "Back-office : 7 onglets (utilisateurs, livres, auteurs, catégories, critiques, bannières) et dashboard analytique."
+    image: ../../../assets/projects/nuit-d-encre/admin.png
 ---

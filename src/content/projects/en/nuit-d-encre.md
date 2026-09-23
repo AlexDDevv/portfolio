@@ -50,11 +50,28 @@ demonstrates: >-
   reader engagement.
 gallery:
   - caption: "Fig. 1: Book search"
+    description: "Catalogue page with hybrid search combining the internal database, Google Books API and Open Library, with progressive enrichment of imported records."
     image: ../../../assets/projects/nuit-d-encre/books.png
   - caption: "Fig. 2: Book details"
+    description: "Book detail page: server-side computed average ratings, reviews (one per user, XP bonus for detailed ones), recommendations and votes."
     image: ../../../assets/projects/nuit-d-encre/bookDetails.png
   - caption: "Fig. 3: Author details"
+    description: "Author presentation and bibliography, automatically populated when a book is imported."
     image: ../../../assets/projects/nuit-d-encre/authorDetails.png
   - caption: "Fig. 4: Personal library"
+    description: "Reading tracking by status ('Your shelves'), with filters by format, language and status."
     image: ../../../assets/projects/nuit-d-encre/userLibrary.png
+  - caption: "Fig. 5: User profile"
+    description: "Profile page: reading statistics, XP progression, unlocked badges."
+    image: ../../../assets/projects/nuit-d-encre/profil_1.png
+  - caption: "Fig. 6: User profile"
+    image: ../../../assets/projects/nuit-d-encre/profil_2.png
+  - caption: "Fig. 7: User profile"
+    image: ../../../assets/projects/nuit-d-encre/profil_3.png
+  - caption: "Fig. 8: Social activity feed"
+    description: "Activity from followed readers: follows, published reviews, recommendations."
+    image: ../../../assets/projects/nuit-d-encre/activity.png
+  - caption: "Fig. 9: Admin panel"
+    description: "Back office: 7 tabs (users, books, authors, categories, reviews, banners) and an analytics dashboard."
+    image: ../../../assets/projects/nuit-d-encre/admin.png
 ---
