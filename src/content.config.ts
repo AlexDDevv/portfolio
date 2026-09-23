@@ -36,7 +36,10 @@ const projects = defineCollection({
     gallery: z
       .array(
         z.object({
+          /** Titre de la figure, affiché en italique. */
           caption: z.string(),
+          /** Texte optionnel affiché après le titre, en style normal. */
+          description: z.string().optional(),
           // Image optionnelle, relative au fichier .md (ex.
           // ../../../assets/projects/<slug>/accueil.png). Optimisée au build
           // par astro:assets. Sans image, un emplacement vide est affiché.
